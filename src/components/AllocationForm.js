@@ -7,6 +7,14 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
+    
+    const handleChange = (e) => {
+        const { value } = e.target;
+        const regex = /^[0-9\b]+$/; 
+        if (regex.test(value)){
+            setCost(value);
+        }
+        } 
 
     const submitEvent = () => {
 
@@ -61,11 +69,11 @@ const AllocationForm = (props) => {
 
                     <input
                         required='required'
-                        type='number'
+                        type='text'
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
+                        onChange={handleChange}>
                         </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
