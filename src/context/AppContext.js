@@ -43,20 +43,25 @@ export const AppReducer = (state, action) => {
                     ...state,
                     expenses: [...red_expenses],
                 };
-            case 'DELETE_EXPENSE':
-            action.type = "DONE";
-            state.expenses.map((currentExp)=> {
-                if (currentExp.name === action.payload) {
-                    budget = state.budget + currentExp.cost
-                    currentExp.cost =  0;
-                }
-                return currentExp
-            })
-            action.type = "DONE";
-            return {
-                ...state,
-                budget
-            };
+                case 'DECREASE_EXPENSE':
+                    const expenses = state.expenses.map(expense => {
+                      if (expense.id === action.payload.id) {
+                        const newAmount = expense.cost - action.payload.amount;
+                        return {
+                          ...expense,
+                          cost: newAmount < 0 ? 0 : newAmount,
+                        };
+                      }
+                      return expense;
+                    });
+                  
+                    const budget = state.budget + action.payload.amount;
+                  
+                    return {
+                      ...state,
+                      expenses,
+                      budget,
+                    };
         case 'SET_BUDGET':
             action.type = "DONE";
             state.budget = action.payload;
@@ -85,15 +90,8 @@ const initialState = {
         { id: "Sales", name: 'Sales', cost: 70 },
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
-    ],
-    // currency: [
-    //     { prefix : '£', name: 'Pound'},
-    //     { prefix: '$', name: 'Dollar'},
-    //     { prefix: '€', name: 'Euro' },
-    //     { prefix: '₹', name: 'Ruppee' },
-    // ]
-        
-        currency : '£'
+    ],  
+    currency : '£'
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state

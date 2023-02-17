@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, expenses } = useContext(AppContext);
+    const { budget, expenses, currency } = useContext(AppContext);
     const [inputBudget, setInputBudget] = useState(budget);
     const { dispatch } = useContext(AppContext);
 
@@ -20,7 +20,7 @@ const Budget = () => {
     }
     return (
         <div className='alert alert-secondary'>
-            <label>Budget: £</label>
+            <label>Budget: {currency}</label>
             <input
             type="number"
             name="budget"
@@ -28,6 +28,7 @@ const Budget = () => {
             value={inputBudget}
             onChange={handleBudgetChange}
             onBlur={handleBlur}
+            style={{marginLeft: "2rem", width:"50%" }} 
             ></input>
         </div>
     );

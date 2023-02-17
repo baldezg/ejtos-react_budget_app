@@ -16,7 +16,7 @@ const CurrencySelector = () => {
   };
 
   return (
-    <div className="alert alert-secondary dropdown">
+    <div className="alert alert-secondary">
         <button className="btn dropdown-toggle" type="button" id="currencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         Currency: ({currency ? `${currency}  ${currencys[currency]}` : "Select Currency"})
         </button>
