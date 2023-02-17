@@ -6,6 +6,7 @@ import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
 import CurrencySelector from './components/CurrencySelector'
+import './App.css'
 import { AppProvider } from './context/AppContext';
 
 const App = () => {

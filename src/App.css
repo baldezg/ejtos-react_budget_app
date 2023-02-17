@@ -6,7 +6,21 @@
   height: 40vmin;
   pointer-events: none;
 }
+.dropdown-menu {
+    background-color: lightgreen;
+}
+.dropdown-toggle {
+    background-color: lightgreen;
+    color: white;
+}
+.dropdown-toggle:focus{
+    background-color: lightgreen;
+    color: white;
+}
 
+.dropdown-item:hover{
+    background-color: white;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

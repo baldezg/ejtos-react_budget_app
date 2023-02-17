@@ -17,16 +17,16 @@ const CurrencySelector = () => {
 
   return (
     <div className="alert alert-secondary dropdown">
-      <label htmlFor="currency" style={{ backgroundColor: 'lightgreen' }}>
-      Currency: ({currency ? `${currency}  ${currencys[currency]}` : "Select Currency"})
-      </label>
-      <select id="currency" value={currency} onChange={handleCurrencyChange}>
-        <option style={{ backgroundColor: 'lightgreen' }}value="$">Dollar</option>
-        <option value="£">Pound</option>
-        <option value="€">Euro</option>
-        <option value="₹">Ruppee</option>
-      </select>
-    </div>
+        <button className="btn dropdown-toggle" type="button" id="currencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Currency: ({currency ? `${currency}  ${currencys[currency]}` : "Select Currency"})
+        </button>
+        <ul className="dropdown-menu" aria-labelledby="currencyDropdown">
+        <li><button className="dropdown-item" type="button" value="$" onClick={handleCurrencyChange}>Dollar</button></li>
+        <li><button className="dropdown-item" type="button" value="£" onClick={handleCurrencyChange}>Pound</button></li>
+        <li><button className="dropdown-item" type="button" value="€" onClick={handleCurrencyChange}>Euro</button></li>
+        <li><button className="dropdown-item" type="button" value="₹" onClick={handleCurrencyChange}>Rupee</button></li>
+        </ul>
+  </div>
   );
 };
 
